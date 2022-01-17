@@ -15,9 +15,9 @@ Commits, which is an object that stores the current contents of the project in a
 - Blob
 - Commit
 
-read [this](https://github.com/nnja/advanced-git/blob/master/exercises/Exercise1-SimpleCommit.md) to know what we talk about
+[here](https://github.com/nnja/advanced-git/blob/master/exercises/Exercise1-SimpleCommit.md) for exercice to know more about what we are talking about
 ```
-rezha@REZHAs-MacBook-Pro git-in-depth-course % tree .git/objects
+% tree .git/objects
 .git/objects
 ├── 58
 │   └── 1caa0fe56cf01dc028cc0b089d364993e046b6
@@ -31,26 +31,39 @@ rezha@REZHAs-MacBook-Pro git-in-depth-course % tree .git/objects
 
 - the Tree
 ```
-rezha@REZHAs-MacBook-Pro git-in-depth-course % git cat-file -t 581ca         
+% git cat-file -t 581ca         
 tree
-rezha@REZHAs-MacBook-Pro git-in-depth-course % git cat-file -p 581ca
+% git cat-file -p 581ca
 100644 blob 980a0d5f19a64b4b30a87d4206aade58726b60e3	hello.txt
 ```
 - the Blob
 ```
-rezha@REZHAs-MacBook-Pro git-in-depth-course % git cat-file -t 980a0
+% git cat-file -t 980a0
 blob
-rezha@REZHAs-MacBook-Pro git-in-depth-course % git cat-file -p 980a0
+% git cat-file -p 980a0
 Hello World!
 ```
 - the Commit
 ```
-rezha@REZHAs-MacBook-Pro git-in-depth-course % git cat-file -t 99b21
+% git cat-file -t 99b21
 commit
-rezha@REZHAs-MacBook-Pro git-in-depth-course % git cat-file -p 99b21
+% git cat-file -p 99b21
 tree 581caa0fe56cf01dc028cc0b089d364993e046b6
 author Rezha Erlangga <reza@machtwatch.co.id> 1642390839 +0700
 committer Rezha Erlangga <reza@machtwatch.co.id> 1642390839 +0700
 
 Initial commit
 ```
+
+## Git Areas and Stashing
+### Working Area (Working Tree)
+The working area is where files that are not handled by git. These files are also referred to as "untracked files." Because kind of just in your local directory.
+The working area it's where you can add new content, modify and delete content
+### Staging Area (Cache)
+Staging area is files that are going to be a part of the next commit, which lets git know what changes in the file are going to occur for the next commit
+### Repository
+The repository contains all of a project's commits. And the commits is a snapshop of what your working and staging area look like at the time of the commit
+### Stashing
+git stash which is saving work that is not committed to a git repo and is also safe from destructive operations. find more about git stash command [here](https://git-scm.com/docs/git-stash)
+
+[here](https://github.com/nnja/advanced-git/blob/master/exercises/Exercise2-StagingAndStashing.md) for exercice to know more about Staging and Stahsing
