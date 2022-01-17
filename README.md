@@ -66,4 +66,4 @@ The repository contains all of a project's commits. And the commits is a snapsho
 ### Stashing
 git stash which is saving work that is not committed to a git repo and is also safe from destructive operations. find more about git stash command [here](https://git-scm.com/docs/git-stash)
 
-[here](https://github.com/nnja/advanced-git/blob/master/exercises/Exercise2-StagingAndStashing.md) for exercice to know more about Staging and Stahsing
+[here](https://github.com/nnja/advanced-git/blob/master/exercises/Exercise2-StagingAndStashing.md) for exercice to advanced about staging and stashing
