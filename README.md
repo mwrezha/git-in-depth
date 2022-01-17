@@ -67,3 +67,60 @@ The repository contains all of a project's commits. And the commits is a snapsho
 git stash which is saving work that is not committed to a git repo and is also safe from destructive operations. find more about git stash command [here](https://git-scm.com/docs/git-stash)
 
 [here](https://github.com/nnja/advanced-git/blob/master/exercises/Exercise2-StagingAndStashing.md) for exercice to advanced about staging and stashing
+
+## References (_pointers to commits_)
+Three types of git references is Branches, Head and Tags & Annotated Tags
+- A **Branch** is just a pointer to a particular commit, The pointer of the current branch changes as new commits are
+made. 
+- **HEAD** is how git knows what branch you’re currently on, and what the next parent will be.
+  - It usually points at the _**name**_ of the current branch. But, it can point at a commit too (detached HEAD).
+  - You make a commit in the currently active branch when you checkout a new branch
+- **Tags** are just a simple pointer to a commit. When you create a tag with no arguments, it captures the value in HEAD
+
+  ```
+    % git checkout master    
+    Switched to branch 'master'
+
+    % git tag my-first-commit
+
+    % tree .git/refs        
+    .git/refs
+    ├── heads
+    │   ├── master
+    │   └── new_branch
+    └── tags
+        └── my-first-commit
+
+    2 directories, 3 files
+  ```
+- **Annotated Tags** Point to a commit, but store additional information. Author, message, date.
+
+  ```
+  % git tag -a v1.0 -m "Version 1.0 of my repo"
+  
+  % git tag
+  my-first-commit
+  v1.0
+
+  % git show v1.0
+  tag v1.0
+  Tagger: Rezha Erlangga <reza@machtwatch.co.id>
+  Date:   Mon Jan 17 16:12:48 2022 +0700
+  
+  Version 1.0 of my repo
+  
+  commit 99b2172e47a9367ff4cb3fc9c093090087688807 (HEAD -> master, tag: v1.0, tag: my-first-commit, new_branch)
+  Author: Rezha Erlangga <reza@machtwatch.co.id>
+  Date:   Mon Jan 17 10:40:39 2022 +0700
+   
+     Initial commit
+  
+  diff --git a/hello.txt b/hello.txt
+  new file mode 100644
+  index 0000000..980a0d5
+  --- /dev/null
+  +++ b/hello.txt
+  @@ -0,0 +1 @@
+  +Hello World!
+
+  ```
