@@ -161,3 +161,37 @@ made.
   +Hello World!
 
   ```
+
+  ### Head-Less / Detached Head
+
+  Sometimes you need to checkout a specific commit (or tag) instead of a branch. Git moves the HEAD pointer to the commit that you specified. When you check out a different branch or a commit, the value of HEAD's gonna change too, It's going to change to the next SHA. There is no reference pointing to the commits you made in a detached state.
+
+  If you make any commits in a DETACHED HEAD state, they don't have any references to them. Git doesn't know how to point to them. Let me explain this with a diagram. I have a, I checked out a commit.
+
+  Git tells me that I'm in a DETACHED HEAD state.
+
+  ```
+  % git checkout 99b21
+  Note: switching to '99b21'.
+
+  You are in 'detached HEAD' state. You can look around, make experimental
+  changes and commit them, and you can discard any commits you make in this
+  state without impacting any branches by switching back to a branch.
+
+  If you want to create a new branch to retain commits you create, you may
+  do so (now or later) by using -c with the switch command. Example:
+
+    git switch -c <new-branch-name>
+
+  Or undo this operation with:
+
+    git switch -
+
+  Turn off this advice by setting config variable advice.detachedHead to false
+
+  HEAD is now at 99b2172 Initial commit
+
+  ```
+  Can look around, make changes, I can commit them. If I don't do anything with the commits that I made in a DETACHED HEAD state, you can consider them lost.
+
+  A detached head occurs when a commit is checked out instead of a branch. If a commit does not point or associates to a branch, the changes will not be references in git and eventually go to garbage collection.
